@@ -29,7 +29,7 @@ Cornelius Fiddlebone:
   twitter: "rhymeswithsackit"
 ```
 
-**Step 2.** Assign one of the authors in `authors.yml` to a post or page you wish to override the `site.author` with. 
+**Step 2.** Assign one of the authors in `authors.yml` to a post or page you wish to override the `site.author` with.
 
 Example: To assign `Billy Rick` as an author for a post the following YAML Front Matter would be applied:
 
