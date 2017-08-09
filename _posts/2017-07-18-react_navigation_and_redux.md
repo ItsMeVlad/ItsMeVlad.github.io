@@ -89,3 +89,27 @@ With the above code, we have changed the text of our component by changing the s
 
 
 Now, enough with background info, and onto the real stuff, Redux! As we saw above, state allows you to change the 'state' of your component, what Redux allows you to do is hold the entire state of your application in a 'state' object. What this means is that you no longer have a state meant only for your component, but a central application-wide state, which your components access individually. How is this helpful? Well, having a central state means that you can transfer information between components. It also means that you can re-render components based on external input, that is extremely beneficial when you work with external APIs or databases.
+
+Redux is based on something which I like to call the [redux flow](http://redux.js.org/docs/basics/DataFlow.html), which comes from Facebook's flux. There are three main components to using redux, these are Actions, Components and Reducers. Components are just what we think they are, except in redux terms they're called 'smart' components. Smart components are simply components linked to redux. 
+
+The general flow in redux is that a component triggers an action, which potentially takes some data and passes it to a reducer, which accomplishes some sort of transformation (a techy way of saying we take the data and change it in some way) and then causes the component that triggered the action to re-render using the new data passed to it by the reducer. Now, on a technical level this may not be exactly 1-1, but for the purpose of an explanation, we will use it now.
+
+As you've probably figured by now, I like examples, so, for our redux example we will start with our main file (bare in mind that this is the same file we used in our react-navigation section above), index.ios.js. Here, we will create what we call a redux store and pass it to our main component. Since we're passing the store to our main component, all of the child components also have access to it (This is very important!).
+
+Now, we will create go ahead and create our first reducer (unfortunately, in order to be able to easily and correctly explain redux, we first need a working example so don't worry if you don't know what a 'reducer' is yet). 
+
+<script src="https://gist.github.com/ItsMeVlad/reducer.js"></script>
+
+We create our reducer and then move on to creating the action that will pass the data to it. 
+
+<script src="https://gist.github.com/ItsMeVlad/action.js"></script>
+
+Now we will use our previous components to and turn them from 'dumb' components (componenets that don't use redux) to 'smart' components (components that do use redux). We do this by using the 'connect' function from the redux npm package, which connects our component to redux. Boom! it's now a smart component.
+
+<script src="https://gist.github.com/ItsMeVlad/tabOneScreen_withRedux.js"></script>
+
+We will do the same for our second component.
+
+<script src="https://gist.github.com/ItsMeVlad/tabTwoScreen_withRedux.js"></script>
+
+If you run the application now, you should get the same result you had before, except, you now have an application connected to redux (in a very basic sense). We will go into actually using redux in [Part 2] of the series. 
